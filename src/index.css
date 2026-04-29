@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+@layer base {
+  html, body {
+    @apply h-full select-none;
+    -webkit-tap-highlight-color: transparent;
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+
+  /* Allow scrolling in specific areas but keep overall app locked */
+  .overflow-y-auto {
+    @apply touch-pan-y overscroll-contain;
+  }
+}
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  @apply bg-[#0B0C10] text-[#E0E0E0] antialiased overflow-x-hidden selection:bg-[#8A2BE2] selection:text-white;
+}
+
+/* Glassmorphism scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(138, 43, 226, 0.2);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(138, 43, 226, 0.4);
+}
+
+.dark {
+  --bg-color: #0B0C10;
+}
+
+.light {
+  --bg-color: #f5f5f5;
+  color: #1a1a1a;
+}
+
